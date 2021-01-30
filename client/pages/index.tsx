@@ -10,9 +10,9 @@ export default function () {
       </Head>
 
       <div className={styles.container}>
-        <h1>Cam feed</h1>
+        <h1>RPi camera feed</h1>
 
-        <img src="http://0.0.0.0:2204/video_feed" />
+        <img src={`http://192.168.1.247:2204/video_feed`} />
       </div>
     </>
   );
