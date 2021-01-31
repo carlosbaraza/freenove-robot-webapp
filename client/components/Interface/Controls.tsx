@@ -33,7 +33,7 @@ export const Controls: FC<Props> = (props) => {
         --control-size: 50px;
 
         .Controls {
-          background: rgba(0, 0, 0, 0.2);
+          background: rgba(255, 255, 255, 0.1);
           border-radius: 50%;
           position: relative;
           width: calc(var(--control-size) * 3 + 10px);

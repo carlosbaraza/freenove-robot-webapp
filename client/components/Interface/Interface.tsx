@@ -5,6 +5,7 @@ import { ROBOT_API_URL } from "../../lib/config";
 import { sendCommands } from "../../lib/robot";
 import { Camera } from "./Camera";
 import { ControlButtonKey, Controls } from "./Controls";
+import Div100vh from "react-div-100vh";
 
 type Props = {};
 
@@ -39,25 +40,27 @@ export const Interface: FC<Props> = (props) => {
 
   return (
     <>
-      <div className="Interface">
-        <div className="camera">
-          <Camera />
-        </div>
-        <div className="left-controls">
-          <Controls onClick={onLeftControlsClick} />
-        </div>
+      <Div100vh>
+        <div className="Interface">
+          <div className="camera">
+            <Camera />
+          </div>
+          <div className="left-controls">
+            <Controls onClick={onLeftControlsClick} />
+          </div>
 
-        <div className="right-controls">
-          <Controls onClick={onRightControlsClick} />
+          <div className="right-controls">
+            <Controls onClick={onRightControlsClick} />
+          </div>
         </div>
-      </div>
+      </Div100vh>
 
       <style jsx>{`
         .Interface {
           left: 0;
           top: 0;
           width: 100vw;
-          height: 100vh;
+          height: 100%;
         }
 
         .camera {

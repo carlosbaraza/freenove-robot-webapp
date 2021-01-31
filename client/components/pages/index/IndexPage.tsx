@@ -17,6 +17,11 @@ export const IndexPage: FC<Props> = (props) => {
       </div>
 
       <style jsx>{`
+        :global(body) {
+          height: 100%;
+          overflow: hidden;
+        }
+
         .IndexPage {
           display: flex;
           flex-direction: column;

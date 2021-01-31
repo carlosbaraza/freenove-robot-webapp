@@ -2,6 +2,11 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
+echo "Creating and cleaning up server folders"
+ssh pi@192.168.1.247 << EOF
+    mkdir -p ~/webapp/server
+EOF
+
 cd $DIR/../server
 echo "Compressing server"
 gtar -zcf ../tmp/server.tar.gz *
