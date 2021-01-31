@@ -1,36 +1,22 @@
-from flask import Flask, Response
-import cv2
-import numpy as np
-import time
-import picamera
+from flask import Flask
+import routes
+import routes.camera
+import routes.commands
+import routes.index
+
 
 app = Flask(__name__)
-# video = cv2.VideoCapture(0)
 
 
-@app.route('/')
-def index():
-    return "Default Message"
+@app.after_request
+def after_request(response):
+    header = response.headers
+    header['Access-Control-Allow-Headers'] = '*'
+    header['Access-Control-Allow-Origin'] = '*'
+    return response
 
 
-def gen():
-    with picamera.PiCamera() as camera:
-        camera.resolution = (416, 304)
-        camera.framerate = 15
-        time.sleep(2)
-        while True:
-            image = np.empty((304, 416, 3), dtype=np.uint8)
-            camera.capture(image, 'bgr')
-            ret, jpeg = cv2.imencode('.jpg', image)
-            frame = jpeg.tobytes()
-            yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-
-
-@app.route('/video_feed')
-def video_feed():
-    return Response(gen(),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
+app.register_blueprint(routes.routes)
 
 
 if __name__ == '__main__':

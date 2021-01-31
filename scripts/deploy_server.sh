@@ -18,6 +18,6 @@ ssh pi@192.168.1.247 << EOF
 
     pm2 stop webapp-server || true
     pm2 delete webapp-server || true
-    pm2 start server.py --name "webapp-server"
+    ENV=rpi pm2 start server.py --name "webapp-server"
     pm2 save
 EOF
