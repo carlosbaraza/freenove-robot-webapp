@@ -7,3 +7,4 @@ mkdir -p $DIR/../tmp
 cd $DIR
 ./deploy_client.sh
 ./deploy_server.sh
+./deploy_camera_server.sh
