@@ -3,6 +3,8 @@
 This is a test project to build a web application to control the Freenove 4-Wheels
 robot.
 
+![Freenove 4-Wheels Webapp screenshot](./docs/screenshot.png)
+
 # Dependencies
 
 Some dependencies need to be installed to use the project in your Raspberry Pi. I may
